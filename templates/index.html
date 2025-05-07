@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Disaster Relief Chatbot for emergency assistance">
+    <title>Disaster Relief Chatbot</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1><i class="fas fa-robot"></i> Disaster Relief Assistant</h1>
+            <p>Get immediate assistance during emergency situations</p>
+        </header>
+        
+        <main>
+            <div class="chat-container">
+                <div class="chat-header">
+                    <div class="status">
+                        <span class="status-dot"></span>
+                        <span>Online</span>
+                    </div>
+                    <div class="chat-actions">
+                        <button id="clear-chat" aria-label="Clear chat history">
+                            <i class="fas fa-trash-alt"></i>
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="chat-messages" id="chat-messages" aria-live="polite">
+                    <div class="message bot-message">
+                        <div class="message-content">
+                            <p>Hello! I'm the Disaster Relief Assistant. How can I help you today?</p>
+                        </div>
+                        <div class="message-time">Just now</div>
+                    </div>
+                </div>
+                
+                <div class="chat-input">
+                    <form id="message-form">
+                        <input type="text" id="user-input" placeholder="Type your message here..." autocomplete="off" aria-label="Type your message">
+                        <button type="submit" aria-label="Send message">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="info-panel">
+                <div class="info-section">
+                    <h2>Emergency Contacts</h2>
+                    <ul>
+                        <li><i class="fas fa-phone"></i> Emergency: 112</li>
+                        <li><i class="fas fa-ambulance"></i> Ambulance: 108</li>
+                        <li><i class="fas fa-fire-extinguisher"></i> Fire: 101</li>
+                        <li><i class="fas fa-hospital"></i> Disaster Management: 1070</li>
+                        <li><i class="fas fa-phone-alt"></i> State Emergency: 1077</li>
+                    </ul>
+                </div>
+                
+                <div class="info-section">
+                    <h2>Disaster Types</h2>
+                    <div class="disaster-types">
+                        <span class="disaster-tag">Flood</span>
+                        <span class="disaster-tag">Earthquake</span>
+                        <span class="disaster-tag">Landslide</span>
+                        <span class="disaster-tag">Fire</span>
+                        <span class="disaster-tag">Cloudburst</span>
+                        <span class="disaster-tag">Avalanche</span>
+                    </div>
+                </div>
+                
+                <div class="info-section">
+                    <h2>Regions Covered</h2>
+                    <div class="regions">
+                        <div class="region">
+                            <h3>Kumaon</h3>
+                            <ul>
+                                <li>Nainital</li>
+                                <li>Almora</li>
+                                <li>Pithoragarh</li>
+                                <li>Bageshwar</li>
+                                <li>Champawat</li>
+                                <li>Udham Singh Nagar</li>
+                            </ul>
+                        </div>
+                        <div class="region">
+                            <h3>Garhwal</h3>
+                            <ul>
+                                <li>Dehradun</li>
+                                <li>Haridwar</li>
+                                <li>Chamoli</li>
+                                <li>Rudraprayag</li>
+                                <li>Tehri</li>
+                                <li>Uttarkashi</li>
+                                <li>Pauri Garhwal</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="info-section dos-donts">
+                    <h2>Disaster Do's & Don'ts</h2>
+                    <div class="tabs">
+                        <button class="tab-btn active" data-tab="earthquake">Earthquake</button>
+                        <button class="tab-btn" data-tab="flood">Flood</button>
+                        <button class="tab-btn" data-tab="landslide">Landslide</button>
+                    </div>
+                    
+                    <div class="tab-content active" id="earthquake-content">
+                        <div class="do-dont">
+                            <div class="do">
+                                <h4><i class="fas fa-check-circle"></i> Do</h4>
+                                <ul>
+                                    <li>Drop, cover, and hold on</li>
+                                    <li>Stay away from windows</li>
+                                    <li>If outdoors, move to open areas</li>
+                                    <li>If in vehicle, pull over safely</li>
+                                </ul>
+                            </div>
+                            <div class="dont">
+                                <h4><i class="fas fa-times-circle"></i> Don't</h4>
+                                <ul>
+                                    <li>Don't run outside during shaking</li>
+                                    <li>Don't use elevators</li>
+                                    <li>Don't light matches or candles</li>
+                                    <li>Don't stand near furniture that can fall</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="tab-content" id="flood-content">
+                        <div class="do-dont">
+                            <div class="do">
+                                <h4><i class="fas fa-check-circle"></i> Do</h4>
+                                <ul>
+                                    <li>Move to higher ground</li>
+                                    <li>Listen to emergency broadcasts</li>
+                                    <li>Turn off utilities if instructed</li>
+                                    <li>Prepare an emergency kit</li>
+                                </ul>
+                            </div>
+                            <div class="dont">
+                                <h4><i class="fas fa-times-circle"></i> Don't</h4>
+                                <ul>
+                                    <li>Don't walk through flowing water</li>
+                                    <li>Don't drive through flooded areas</li>
+                                    <li>Don't touch electrical equipment if wet</li>
+                                    <li>Don't return home until authorities say it's safe</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="tab-content" id="landslide-content">
+                        <div class="do-dont">
+                            <div class="do">
+                                <h4><i class="fas fa-check-circle"></i> Do</h4>
+                                <ul>
+                                    <li>Listen for unusual sounds</li>
+                                    <li>Evacuate if safe to do so</li>
+                                    <li>Watch for flooding after landslide</li>
+                                    <li>Report broken utilities to authorities</li>
+                                </ul>
+                            </div>
+                            <div class="dont">
+                                <h4><i class="fas fa-times-circle"></i> Don't</h4>
+                                <ul>
+                                    <li>Don't stay in the path of a landslide</li>
+                                    <li>Don't return to affected area until cleared</li>
+                                    <li>Don't approach downed power lines</li>
+                                    <li>Don't build near steep slopes</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+        
+        <footer>
+            <p>&copy; 2025 Disaster Relief Chatbot | Powered by NLP</p>
+        </footer>
+    </div>
+    
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
